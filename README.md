@@ -42,14 +42,14 @@ Para mejorar la eficiencia del algoritmo y reducir el tiempo de búsqueda, se ap
 ## **Análisis de Eficiencia**
 
 ### **Complejidad Temporal**:
-- **Peor caso**: \(O(n*m*k)\), donde:
+- **Peor caso**: \(O(n·m·k)\), donde:
   - \(n\): Número de asignaturas.
   - \(m\): Número de horas disponibles por día.
   - \(k\): Número de aulas.
 - La complejidad puede crecer exponencialmente, se han implementado **heurísticas** que reducir significativamente el espacio de búsqueda al priorizar las combinaciones más prometedoras.
 
 ### **Complejidad Espacial**:
-- \(O(d*h)\), donde:
+- \(O(d·h)\), donde:
   - \(d\): Número de días.
   - \(h\): Número de horas por día.
 - La memoria se utiliza para almacenar el horario generado.
@@ -63,7 +63,7 @@ Para mejorar la eficiencia del algoritmo y reducir el tiempo de búsqueda, se ap
 Para implementar este sistema a **gran escala** (universidades con muchas carreras, grupos y profesores), se proponen las siguientes modificaciones:
 
 1. **Base de Datos**:
-   - Utilizar una base de datos como **MySQL** o **PostgreSQL** para manejar grandes volúmenes de datos.
+   - Utilizar una base de datos para manejar grandes volúmenes de datos.
 
 2. **Interfaz Web**:
    - Sustituir **Tkinter** por un framework web como **Django** o **Flask** para mejorar la escalabilidad.
@@ -72,7 +72,6 @@ Para implementar este sistema a **gran escala** (universidades con muchas carrer
    - Reemplazar **Backtracking** por técnicas más eficientes:
      - **Programación Lineal Entera (ILP)**: Solución óptima y eficiente.
      - **Algoritmos Genéticos**: Soluciones aproximadas para problemas muy grandes.
-     - **CSP (Constraint Satisfaction Problems)**: Adecuado para problemas de asignación con restricciones complejas.
 
 4. **Optimización**:
    - Modelar el problema como un flujo de red. El objetivo de los flujos de red es determinar la cantidad máxima o mínima de recursos que pueden moverse a través de la red cumpliendo ciertas restricciones. 
