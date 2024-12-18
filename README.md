@@ -42,11 +42,11 @@ Para mejorar la eficiencia del algoritmo y reducir el tiempo de búsqueda, se ap
 ## **Análisis de Eficiencia**
 
 ### **Complejidad Temporal**:
-- **Peor caso**: \(O(n·m·k)\), donde:
+- **Caso intermedio**: \(O(n·m·k)\), donde:
   - \(n\): Número de asignaturas.
   - \(m\): Número de horas disponibles por día.
   - \(k\): Número de aulas.
-- La complejidad puede crecer exponencialmente, se han implementado **heurísticas** que reducir significativamente el espacio de búsqueda al priorizar las combinaciones más prometedoras.
+- La complejidad puede crecer exponencialmente al peor caso O(n!), por lo que se han implementado **heurísticas** que reducir significativamente el espacio de búsqueda al priorizar las combinaciones más prometedoras.
 
 ### **Complejidad Espacial**:
 - \(O(d·h)\), donde:
