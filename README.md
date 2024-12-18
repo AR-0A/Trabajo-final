@@ -24,53 +24,34 @@ El proyecto utiliza técnicas avanzadas de algoritmos, como **Backtracking** y *
 ## **Técnicas Algorítmicas Utilizadas**
 
 ### **1. Backtracking**
-- Es un algoritmo de búsqueda que explora todas las combinaciones posibles para asignar asignaturas a horarios y aulas.
-- Si se encuentra un conflicto, el algoritmo **retrocede** (backtrack) y prueba la siguiente combinación.
+- Es un algoritmo de búsqueda que explora todas las combinaciones posibles para asignar asignaturas a horarios y aulas. De manera que se han creado funciónes para:
+     - Verificar si una asignación es válida.
+     - Asignar una clase temporalmente.
+     - Retroceder si una asignación genera conflictos.
 - **Ventaja**: Garantiza encontrar una solución si existe.
 
 ### **2. Optimización con Heurísticas**
 Para mejorar la eficiencia del algoritmo y reducir el tiempo de búsqueda, se aplican las siguientes optimizaciones:
 - **Ordenamiento de aulas**:
   - Las aulas se ordenan por capacidad para minimizar el desperdicio de espacio:
-    ```python
-    aulas = sorted(aulas, key=lambda x: abs(x.capacidad - asignatura.tamaño_grupo))
-    ```
 - **Priorización de horarios preferidos**:
-  - Las horas preferidas por los profesores reciben un **peso mayor**, lo que aumenta la probabilidad de ser asignadas primero:
-    ```python
-    if (dia, hora) in asignatura.profesor.preferencias:
-        peso = 0.9  # Alta preferencia
-    ```
-
----
-
-## **Estructura del Algoritmo**
-
-1. **Entrada**:
-   - Lista de asignaturas, profesores, aulas y sus restricciones.
-
-2. **Proceso**:
-   - Utiliza **Backtracking** para:
-     - Verificar si una asignación es válida (`verificar_disponibilidad`).
-     - Asignar una clase temporalmente (`asignar_horario`).
-     - Retroceder si una asignación genera conflictos (`desasignar_horario`).
-
-3. **Salida**:
-   - Un horario válido, respetando todas las restricciones.
+  - Las horas preferidas por los profesores reciben un **peso mayor**, lo que aumenta la probabilidad de ser asignadas primero
 
 ---
 
 ## **Análisis de Eficiencia**
 
 ### **Complejidad Temporal**:
-- **Peor caso**: \(O(n \cdot m \cdot k)\), donde:
+- **Peor caso**: \(O(n*m*k)\), donde:
   - \(n\): Número de asignaturas.
   - \(m\): Número de horas disponibles por día.
   - \(k\): Número de aulas.
-- La complejidad puede crecer exponencialmente, pero las **heurísticas** reducen significativamente el espacio de búsqueda al priorizar las combinaciones más prometedoras.
+- La complejidad puede crecer exponencialmente, se han implementado **heurísticas** que reducir significativamente el espacio de búsqueda al priorizar las combinaciones más prometedoras.
 
 ### **Complejidad Espacial**:
-- \(O(d \cdot h)\), donde \(d\) es el número de días y \(h\) el número de horas por día.
+- \(O(d*h)\), donde:
+  - \(d\): Número de días.
+  - \(h\): Número de horas por día.
 - La memoria se utiliza para almacenar el horario generado.
 
 ### **Optimización**:
@@ -79,7 +60,7 @@ Para mejorar la eficiencia del algoritmo y reducir el tiempo de búsqueda, se ap
 ---
 
 ## **Escalabilidad para Grandes Sistemas**
-Para implementar este sistema a **gran escala** (universidades con muchas carreras, grupos y profesores), se requieren las siguientes modificaciones:
+Para implementar este sistema a **gran escala** (universidades con muchas carreras, grupos y profesores), se proponen las siguientes modificaciones:
 
 1. **Base de Datos**:
    - Utilizar una base de datos como **MySQL** o **PostgreSQL** para manejar grandes volúmenes de datos.
@@ -94,17 +75,4 @@ Para implementar este sistema a **gran escala** (universidades con muchas carrer
      - **CSP (Constraint Satisfaction Problems)**: Adecuado para problemas de asignación con restricciones complejas.
 
 4. **Optimización**:
-   - Modelar el problema como un **flujo de red** para aprovechar algoritmos eficientes de flujo máximo.
-
----
-
-## **Instalación y Ejecución**
-
-### **Requisitos Previos**
-- Python 3.x instalado en tu sistema.
-
-### **Ejecución**
-1. Descarga el archivo `generador_horarios.py`.
-2. Abre una terminal y ejecuta el programa:
-   ```bash
-   python generar_horarios.py
+   - Modelar el problema como un flujo de red. El objetivo de los flujos de red es determinar la cantidad máxima o mínima de recursos que pueden moverse a través de la red cumpliendo ciertas restricciones. 
